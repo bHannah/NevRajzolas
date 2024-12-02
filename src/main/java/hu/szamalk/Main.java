@@ -3,13 +3,14 @@ package hu.szamalk;
 import hu.szamalk.model.Nev;
 
 import java.io.IOException;
+import java.sql.SQLOutput;
 
 public class Main {
     public static void main(String[] args) throws IOException {
     Nev nev = new Nev("#");
     nev.feltolt();
     System.out.println("A betű kirajzolása:");
-    nev.kirajzol();
+    System.out.printf(nev.kirajzol());
     System.out.println("A második sorban levő karakterek mennyisége:");
     System.out.println(nev.karakterekSorban(1));
     System.out.println("Az első oszlopban levő karakterek mennyisége:");

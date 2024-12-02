@@ -36,13 +36,15 @@ public class Nev {
         }
     }
 
-    public void kirajzol(){
+    public String kirajzol(){
+        String s = "";
         for (int i = 0; i < this.tomb.length; i++) {
             for (int j = 0; j < this.tomb[i].length; j++) {
-                    System.out.print(this.tomb[i][j]);
+                    s += this.tomb[i][j];
             }
-            System.out.println();
+            s += "\n";
         }
+        return s;
     }
 
     public int karakterekSorban(int sor) {
@@ -93,16 +95,14 @@ public class Nev {
     }
 
     public void fajlbaIras() throws IOException {
+        String s = this.kirajzol();
         String eleresiUtvonal = "C:\\Users\\both.orsolya\\Desktop\\fajlbairas.txt";
         try(BufferedWriter iras = new BufferedWriter(new FileWriter(eleresiUtvonal))){
             for (int db = 0; db < 100; db++) {
-                for (int i = 0; i < this.tomb.length; i++) {
-                    for (int j = 0; j < this.tomb[i].length; j++) {
-                        iras.write(this.tomb[i][j]);
-                    }
-                    iras.newLine();
-                }
+                iras.write(s);
+                iras.newLine();
             }
         }
     }
 }
+
